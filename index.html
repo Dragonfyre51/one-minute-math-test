@@ -62,36 +62,36 @@
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
               <div class="number-selection">
-                <a href="#testModalAddition" class="btn btn-primary" data-toggle="modal" data-selection="1">1</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="1">1</a>
               </div>
               <div class="number-selection">
-                <a href="#testModalAddition" class="btn btn-primary" data-toggle="modal" data-selection="2">2</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="2">2</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">3</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="3">3</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">4</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="4">4</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">5</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="5">5</a>
               </div>
             </div>
             <div class="btn-group" role="group">
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">6</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="6">6</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">7</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="7">7</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">8</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="8">8</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">9</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="9">9</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">10</a>
+                <a href="#testingModal" class="btn btn-primary" data-toggle="modal" data-operation="addition" data-selection="10">10</a>
               </div>
             </div>
           </div>
@@ -101,36 +101,36 @@
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">1</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="1">1</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">2</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="2">2</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">3</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="3">3</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">4</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="4">4</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">5</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="5">5</a>
               </div>
             </div>
             <div class="btn-group" role="group">
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">6</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="6">6</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">7</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="7">7</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">8</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="8">8</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">9</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="9">9</a>
               </div>
               <div class="number-selection">
-                <a href="#" class="btn btn-primary">10</a>
+                <a href="#testingModal" class="btn btn-primary"  data-toggle="modal" data-operation="subtraction" data-selection="10">10</a>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@
   </footer>
 
   <!-- Modal -->
-  <div class="test-modal modal fade" id="testModalAddition" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="testing-modal modal fade" id="testingModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
       <div class="close-modal" data-dismiss="modal">
         <div class="lr">
@@ -211,15 +211,15 @@
 
 
   <script>
-    $('#testModalAddition').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget) // Button that triggered the modal
-      var selection = button.data('selection') // Extract info from data-* attributes
-      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-      var modal = $(this)
-      modal.find('.modal-title').text('Addition: ' + selection)
+    $('#testingModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var operation = button.data('operation');
+      var operationText = operation === 'addition' ? 'Addition' : 'Subtraction';
+      var selection = parseInt(button.data('selection')); // Extract info from data-* attributes
+      var modal = $(this);
+      modal.find('.modal-title').text(operationText + ': ' + selection);
       //modal.find('.modal-body input').val(recipient)
-    })
+    });
   </script>
 
 </body>
