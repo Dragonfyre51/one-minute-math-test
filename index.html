@@ -176,22 +176,29 @@
             <div class="modal-body">
               <h2 class="modal-title"></h2>
               <hr class="star-primary">
-              <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-              <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-              <ul class="list-inline item-details">
-                <li>Client:
-                  <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                  </strong>
-                </li>
-                <li>Date:
-                  <strong><a href="http://startbootstrap.com">April 2014</a>
-                  </strong>
-                </li>
-                <li>Service:
-                  <strong><a href="http://startbootstrap.com">Web Development</a>
-                  </strong>
-                </li>
-              </ul>
+              <div class="container">
+                <div class="col-sm-4">
+                <div id="problem-0" class="well">1</div>
+                <div id="problem-1" class="well">2</div>
+                <div id="problem-2" class="well">3</div>
+                <div id="problem-3" class="well">4</div>
+                <div id="problem-4" class="well">5</div>
+                </div>
+                <div class="col-sm-4">
+                <div id="problem-5" class="well">1</div>
+                <div id="problem-6" class="well">2</div>
+                <div id="problem-7" class="well">3</div>
+                <div id="problem-8" class="well">4</div>
+                <div id="problem-9" class="well">5</div>
+                </div>
+                <div class="col-sm-4">
+                <div id="problem-10" class="well">1</div>
+                <div id="problem-11" class="well">2</div>
+                <div id="problem-12" class="well">3</div>
+                <div id="problem-13" class="well">4</div>
+                <div id="problem-14" class="well">5</div>
+                </div>
+              </div>
               <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
             </div>
           </div>
@@ -217,9 +224,32 @@
       var operationText = operation === 'addition' ? 'Addition' : 'Subtraction';
       var selection = parseInt(button.data('selection')); // Extract info from data-* attributes
       var modal = $(this);
+      var problems = generateProblems(operation, selection);
       modal.find('.modal-title').text(operationText + ': ' + selection);
-      //modal.find('.modal-body input').val(recipient)
+
+      for (var i = 0; i < 15; i++) {
+        $('#problem-' + i).html(problems[i][0] + "<br>" + problems[i][1] + "<br>" + problems[i][2]);
+      }
     });
+
+    function generateProblems(operation, selection) {
+      var problems = [];
+      for (var i=0; i < 15; i++) {
+        var randomNumber = Math.ceil(Math.random() * 10);
+        if (operation == 'addition') {
+          var a = randomNumber;
+          var b = selection;
+          var c = randomNumber + selection;
+          problems.push(Math.random() < 0.5 ? [a,b,c] : [b,a,c]);
+        } else {
+          var a = randomNumber >= selection ? randomNumber : selection;
+          var b = randomNumber >= selection ? selection : randomNumber;
+          var c = a - b;
+          problems.push([a,b,c]);
+        }
+      }
+      return problems;
+    }
   </script>
 
 </body>
