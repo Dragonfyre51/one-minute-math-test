@@ -228,10 +228,35 @@
       modal.find('.modal-title').text(operationText + ': ' + selection);
 
       for (var i = 0; i < 15; i++) {
-        $('#problem-' + i).html(problems[i][0] + "<br>" + problems[i][1] + "<br>" + problems[i][2]);
+        $('#problem-' + i).html(generateProblemHtml(problems[i][0],problems[i][1],operation));
       }
     });
 
+    function generateProblemHtml(a, b, operation) {
+      o = operation == "addition" ? "+" : "-";
+      html = " \
+          <div class=\"row\"> \
+            <div class=\"col-xs-2 col-xs-offset-6 text-right\"> \
+              " + a + " \
+            </div> \
+          </div> \
+          <div class=\"row\"> \
+            <div class=\"col-xs-2 col-xs-offset-4\"> \
+              " + o + " \
+            </div> \
+            <div class=\"col-xs-2 text-right\"> \
+              " + b + " \
+            </div> \
+          </div> \
+          <hr class=\"star-primary\"> \
+          <div class=\"input-group col-xs-4 col-xs-offset-4\"> \
+            <input type=\"text\" class=\"form-control text-right\" aria-describedby=\"answer\"> \
+          </div> \
+      ";
+      return html;
+    }
+
+    //
     function generateProblems(operation, selection) {
       var problems = [];
       for (var i=0; i < 15; i++) {
