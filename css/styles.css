@@ -1,0 +1,15 @@
+#select {
+  margin-top: 40px;
+}
+
+.number-selection {
+  margin: 2px;
+}
+
+.well.error {
+  background-color: #dc7775; 
+}
+
+footer {
+  margin-top: 60px;
+}
