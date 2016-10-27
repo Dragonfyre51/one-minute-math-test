@@ -174,7 +174,7 @@
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
             <div class="modal-body">
-              <h2 class="modal-title"></h2>
+              <h2 id="modal-title" class="modal-title"></h2>
               <hr class="star-primary">
               <div class="container">
                 <div class="col-sm-4">
@@ -228,8 +228,11 @@
       modal.find('.modal-title').text(operationText + ': ' + selection);
 
       for (var i = 0; i < 15; i++) {
+        $("#problem-" + i).removeClass('error');
         $('#problem-' + i).html(generateProblemHtml(problems[i][0],problems[i][1],operation));
       }
+
+      window.setTimeout(timesUp, 60000, problems);
     });
 
     function generateProblemHtml(a, b, operation) {
@@ -274,6 +277,17 @@
         }
       }
       return problems;
+    }
+
+    function timesUp(problems) {
+      $('#modal-title').text("Time is up");
+      $("input").prop('disabled', true);
+      for (var i=0; i<15; i++) {
+        var inputValue = parseInt($("#problem-" + i + " .input-group").children()[0].value);
+        if (inputValue != problems[i][2]) {
+          $("#problem-" + i).addClass('error');
+        }
+      }
     }
   </script>
 
