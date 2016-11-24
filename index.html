@@ -268,9 +268,9 @@
     $('.choice').on("click", function () {
       operation = this.getAttribute("data-operation");
       selection = parseInt(this.getAttribute("data-selection"));
-      //console.log(operation + ": " + selection);
       problems = generateProblems(operation, selection);
-      //console.log(problems);
+      currentIndex = 0;
+      answers = [];
       $("#problemModal").modal('show');
       $("input").prop('disabled', false);
       window.setTimeout(timesUp, 60000);
@@ -279,7 +279,6 @@
     $('#next').on("click", function() {
       answers.push(parseInt($("#answer").val()));
       currentIndex++;
-      console.log(answers);
       if (currentIndex < problems.length) {
         $("#topNumber").text(problems[currentIndex][0]);
         $("#bottomNumber").text(problems[currentIndex][1]);
