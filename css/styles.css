@@ -2,12 +2,16 @@
   margin-top: 40px;
 }
 
+.modal {
+  overflow-y: scroll;
+}
+
 .number-selection {
   margin: 2px;
 }
 
 .well.error {
-  background-color: #dc7775; 
+  background-color: #dc7775;
 }
 
 footer {
